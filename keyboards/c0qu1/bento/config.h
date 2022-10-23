@@ -29,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0100
 #define MANUFACTURER    nguyedt
 #define PRODUCT         Bento
-#define DESCRIPTION     2x3 Macropad with Rotary Encoder
 
 /* key matrix size */
 #define MATRIX_ROWS 2
@@ -68,6 +67,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
+
+/* Reduce tapdance required taps from 5 to 2 */
+#define TAPPING_TOGGLE 2
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
