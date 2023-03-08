@@ -45,4 +45,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLIGHT_EFFECT_TWINKLE
 
 #define RGBLED_NUM 14
-

@@ -104,19 +104,18 @@ static void render_logo(void) {
 static void print_status_narrow(void) {
     // Print current mode
     oled_write_P(PSTR("\n\n"), false);
-
     switch (get_highest_layer(layer_state)) {
         case 0:
-            oled_write_ln_P(PSTR("Wrkmn"), false);
+            oled_write_P(PSTR("WORK\n"), false);
             break;
         case 1:
-            oled_write_ln_P(PSTR("Qwrty"), false);
+            oled_write_P(PSTR("QWRT\n"), false);
             break;
         default:
-            oled_write_P(PSTR("Mod\n"), false);
+            oled_write_P(PSTR("SYMB\n"), false);
             break;
     }
-    oled_write_P(PSTR("\n\n"), false);
+    oled_write_P(PSTR("\n\n\n"), false);
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
@@ -127,15 +126,15 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("Base\n"), false);
             break;
         case 2:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_P(PSTR("Up\n"), false);
             break;
         case 3:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_P(PSTR("Down\n"), false);
             break;
         default:
-            oled_write_ln_P(PSTR("Undef"), false);
+            oled_write_P(PSTR("Undef\n"), false);
     }
-    oled_write_P(PSTR("\n\n"), false);
+    oled_write_P(PSTR("\n\n\n"), false);
     led_t led_usb_state = host_keyboard_led_state();
     oled_write_ln_P(PSTR("CPSLK"), led_usb_state.caps_lock);
 }
@@ -148,11 +147,11 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
         print_status_narrow();
     } else {
-        oled_set_cursor(0,3);
-        oled_write("DICKO", false);
-		oled_set_cursor(0,7);
+        oled_write_P(PSTR("\n\n"), false);
+        oled_write_P(PSTR("DFN"), false);
+		oled_set_cursor(0,5);
         render_logo();
-        oled_set_cursor(0,13);
+        oled_set_cursor(0,11);
         oled_write_P(PSTR("WPM: "), false);
         oled_write(get_u8_str(get_current_wpm(), ' '), false);
     }
