@@ -17,6 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#define TAPPING_TOGGLE 2
+
 #define VIAL_KEYBOARD_UID {0x43, 0x06, 0xEA, 0x1E, 0xEB, 0x0E, 0xEB, 0x47}
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 1 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 0 }
